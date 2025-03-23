@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('/home', function () {
-    return view('home');
-});
+use App\Http\Controllers\ProductController;
 
 
-Route::get('/add', function () {
-    return view('ajouter');
-});
+Route::resource('products', ProductController::class);
+
+Route::get('/', [ProductController::class, 'index']); 
+
+
+
