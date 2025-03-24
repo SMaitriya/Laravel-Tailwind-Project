@@ -5,23 +5,13 @@
 @section('content')
 
 
-
-{{-- Affichage d'un message de succès si un produit est supprimé --}}
-
-@if (session('success'))
-    <div class="bg-green-100 text-green-800 p-4 rounded mb-4">
-        {{ session('success') }}
-    </div>
-@endif
-
-
 {{-- Section principale : affichage des produits --}}
 
 
 <div class="max-w-4xl mx-auto">
     <h1 class="font-montserrat text-1xl text-gray-500 flex items-center justify-center gap-4 mb-6 mt-8">
         <span class="h-px flex-1 bg-gray-200"></span>
-        PRODUCTS
+        <span class="mx-8">PRODUCTS</span>
         <span class="h-px flex-1 bg-gray-200"></span>
     </h1>
 
