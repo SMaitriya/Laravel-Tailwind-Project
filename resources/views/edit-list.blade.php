@@ -12,13 +12,11 @@
 @endif
 
 {{-- Vérifie s'il y a des produits à afficher --}}
-
 @if ($products->isEmpty())
     <p class="text-center text-gray-500 mt-4">No products available</p>
 @else
 
     {{-- Produits à modifier --}}
-
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8 px-10">
         @foreach ($products as $product)
             <div class="bg-white shadow rounded-lg p-4 flex flex-col justify-between text-center">
@@ -29,10 +27,25 @@
                 {{-- Nom du produit --}}
                 <h2 class="text-lg font-semibold text-gray-800 mb-2">{{ $product->name }}</h2>
                 
-                {{-- Lien pour modifier le produit --}}
-                <a href="{{ route('products.edit', $product->id) }}" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 text-sm">
-                    ✏️ Edit
-                </a>
+
+                {{-- Boutons Edit et Supprimer --}}
+
+                <div class="flex justify-center gap-2 mt-4">
+                    {{-- Bouton Edit --}}
+                    <a href="{{ route('products.edit', $product->id) }}" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 text-sm">
+                        ✏️ Edit
+                    </a>
+
+                    {{-- Supprimer --}}
+                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this product ?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 text-sm">
+                            🗑️ Delete
+                        </button>
+                    </form>
+                </div>
+
             </div>
         @endforeach
     </div>

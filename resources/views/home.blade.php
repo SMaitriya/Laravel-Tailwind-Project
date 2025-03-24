@@ -34,14 +34,6 @@
                 <p class="text-sm text-gray-400 text-center p-3">{{ Str::limit($product->description, 150) }}</p>
                 <p class="mt-5 mb-3 text-gray-700 text-xs text-center">READ MORE →</p>
 
-                {{-- Formulaire de suppression de produit --}}
-
-
-                <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="text-right mb-4 pr-5">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-xs">X</button>
-                </form>
             </div>
         @endforeach
     </div>
