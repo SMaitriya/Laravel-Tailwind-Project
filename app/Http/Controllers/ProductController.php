@@ -58,7 +58,7 @@ class ProductController extends Controller
             'image' => $image,
         ]);
 
-        return redirect()->route('products.create')->with('success', 'Produit ajouté avec succès !');
+        return redirect()->route('products.create')->with('success', 'Product added successfully !');
 
     }
 
