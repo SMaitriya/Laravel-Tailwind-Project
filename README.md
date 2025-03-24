@@ -1,4 +1,4 @@
-# 🛠️ Laravel Product CRUD – Technical Test
+# 🛠️ Laravel Product CRUD 
 
 ## 📋 Description
 
