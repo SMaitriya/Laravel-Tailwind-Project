@@ -10,10 +10,11 @@ class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+     */// Récupère et affiche les produits avec pagination (3 par page)
+
     public function index()
     {
-        $products = Product::paginate(3); // pour la pagination 
+        $products = Product::paginate(3); 
         return view('home', compact('products'));
     }
 
@@ -31,6 +32,9 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
+        // Validation des champs du formulaire
+
+
         $request->validate([
             'name' => 'required',
             'type' => 'required',
@@ -39,12 +43,12 @@ class ProductController extends Controller
             'photo' => 'required|image', 
         ]);
 
-        $image = null;
-        if ($request->hasFile('photo')) {
-            $image = $request->file('photo')->store('images', 'public');
-        }
+        // Stocke l'image 
 
-    
+        $image = $request->file('photo')->store('images', 'public');
+
+
+        // Création du produit
 
         Product::create([
             'name' => $request->name,
@@ -67,23 +71,66 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Affiche le formulaire d’édition d’un produit.
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('edit', compact('product'));
+
+
     }
 
     /**
-     * Update the specified resource in storage.
+     * Met à jour les informations d’un produit existant.
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $product = Product::findOrFail($id);
+
+
+        // Validation des champs
+
+
+        $request->validate([
+            'name' => 'required',
+            'type' => 'required',
+            'price' => 'required|numeric',
+            'description' => 'required|string',
+            'photo' => 'nullable|image', 
+        ]);
+
+        // Mise à jour de l’image si une nouvelle est envoyée
+
+
+        if ($request->hasFile('photo')) {
+            if($product->image) {
+                \Storage::disk('public')->delete($product->image);
+            }
+
+            $product->image =$request->file('photo')->store('images', 'public');
+        }
+
+         // Mets à jour les autres données
+
+         $product->update([
+            'name' => $request->name,
+            'type' => $request->type,
+            'price' => $request->price,
+            'description' => $request->description,
+         ]);
+
+         return redirect()->route('products.edit.list')->with('success', 'The product has been successfully updated');
+            
+
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * // Supprime le produit et son image associée du stockage
+
      */
     public function destroy(string $id)
     {
@@ -94,6 +141,21 @@ class ProductController extends Controller
         }
         $product->delete();
 
-        return redirect()->route('products.index')->with('success', 'Product has been deleted');
+        return redirect()->route('products.index')->with('success', 'The product has been successfully deleted');
     }
+
+
+
+    /**
+     * Affiche la liste des produits pour les modifier.
+     */
+
+    public function editList()
+    {
+        
+        $products = Product::all();
+        return view('edit-list', compact('products'));
+    
+    }
+
 }
