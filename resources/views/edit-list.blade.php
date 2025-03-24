@@ -17,12 +17,14 @@
 @else
 
     {{-- Produits à modifier --}}
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8 px-10">
+    <div class="max-w-4xl mx-auto">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8 px-10 ">
         @foreach ($products as $product)
-            <div class="bg-white shadow rounded-lg p-4 flex flex-col justify-between text-center">
+            <div class="bg-white shadow rounded-lg p-1 flex flex-col justify-between text-center">
                 
                 {{-- Image du produit --}}
-                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-96 object-cover mb-4">
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-70 sm:h-50 object-cover mb-4">
                 
                 {{-- Nom du produit --}}
                 <h2 class="text-lg font-semibold text-gray-800 mb-2">{{ $product->name }}</h2>
@@ -49,6 +51,7 @@
             </div>
         @endforeach
     </div>
+</div>
 @endif
 
 @endsection
