@@ -22,7 +22,7 @@
             <div class="bg-white shadow rounded-lg p-4 flex flex-col justify-between text-center">
                 
                 {{-- Image du produit --}}
-                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-85 object-cover mb-4">
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-96 object-cover mb-4">
                 
                 {{-- Nom du produit --}}
                 <h2 class="text-lg font-semibold text-gray-800 mb-2">{{ $product->name }}</h2>
