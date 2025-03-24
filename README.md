@@ -1,56 +1,95 @@
-# 🛠️ Laravel Product CRUD – Test Technique
+# 🛠️ Laravel Product CRUD – Technical Test
 
 ## 📋 Description
 
-Cette application Laravel 12 permet de :
+This Laravel 12 application allows you to:
 
-- ➕ Ajouter un produit (nom, type, prix, description, image)
-- 📄 Afficher les produits avec pagination (3 par page)
-- ✏️ Modifier et 🗑️ Supprimer un produit existant (avec suppression de l’image)
-- ⚠️ Gérer les erreurs de validation et afficher les messages de succès côté **back-end** et **front-end**
-- 💻 Interface responsive réalisée avec **Tailwind CSS**
+- ## ➕ Create
+  Products (name, type, price, description, image)
+
+- ## 📄 Display
+  Products with pagination (3 per page)
+
+- ## ✏️ Edit and 🗑️ Delete
+  Existing products (including image removal)
+
+- ## ⚠️ Handle Validation
+  Errors and display success messages on both **back-end** and **front-end**
+
+- ## 💻 Responsive Interface
+  Built with **Tailwind CSS**
 
 ---
 
-## ⚙️ Technologies utilisées
+## 📸 Project Screenshots
+
+### 🏠 Home Page
+
+![Home Page](images/home.png)
+
+### ➕ Create Product
+
+![Create Product](images/create.png)
+
+### ✏️ Edit Product
+
+![Edit Product](images/edit.png)
+
+### 📃 Product Edit List
+
+![Edit List](images/editlist.png)
+
+---
+
+## ⚙️ Technologies Used
 
 - PHP **8.2**
 - Laravel **12**
 - Tailwind CSS
-- Blade (Laravel)
+- Blade Templates (Laravel)
 - MySQL
 - Visual Studio Code
 
 ---
 
-## ⏱️ Temps investi
+## ⏱️ Time Invested
 
-Environ **10 heures**, réparties entre :
+Approximately **10 hours**, divided among:
 
-- 🧱 Codage et mise en place du CRUD
-- 🔍 Recherches dans la documentation Laravel/Tailwind et via Google
-- 🎥 Visionnage de vidéos sur Tailwind CSS
-- 📚 Formation sur **Eloquent ORM** (ayant utilisé principalement SQL brut dans mon précédent projet Laravel)
-- 🐞 Résolution de bugs
-- 🧠 Réflexion sur une interface simple, claire et responsive
-
----
-
-## 🚧 Difficultés rencontrées
-
-- 🖼️ Stockage d’image avec `Storage::disk('public')` et suppression des anciennes images
-- 📱 Mise en page responsive avec **Tailwind CSS** (grilles, flex, alignement, etc.)
-- 🛠️ Modification des produits : ajout d’une méthode personnalisée `editList` dans le contrôleur + logique combinée dans `edit()` et `update()`
+- ### 🧱 Coding and CRUD implementation
+- ### 🔍 Researching Laravel/Tailwind documentation and online resources
+- ### 🎥 Watching tutorial videos on Tailwind CSS
+- ### 📚 Training on **Eloquent ORM** (previously used mostly raw SQL in Laravel projects)
+- ### 🐞 Debugging
+- ### 🧠 Designing a clear, simple, and responsive UI
 
 ---
 
-## 📚 Compétences et notions acquises
+## 🚧 Challenges Faced
 
-- ✅ Meilleure compréhension du fonctionnement complet d’un **CRUD** avec Laravel
-- ✅ Maîtrise renforcée de **Laravel Eloquent ORM** et de ses méthodes (`findOrFail`, `paginate`, `create`, `delete`)
-- ✅ Compréhension de la logique **Tailwind CSS** pour le responsive design et la typographie  
-  *(ex. ajout de la police Montserrat dans la page d’accueil pour expérimenter)*
-- ✅ Utilisation de `Route::resource` pour générer automatiquement toutes les routes REST en une seule ligne
+- ### 🖼️ Image Handling
+  Managed image uploads with `Storage::disk('public')` and deletion of old images
+
+- ### 📱 Responsive Layouts
+  Created using **Tailwind CSS** (grids, flexbox, alignment)
+
+- ### 🛠️ Product Editing Logic
+  Implemented custom `editList` method in the controller, combined logic within `edit()` and `update()` methods
 
 ---
 
+## 📚 Skills and Knowledge Gained
+
+- ### ✅ CRUD Workflow
+  Enhanced understanding of complete **CRUD** processes with Laravel
+
+- ### ✅ Eloquent ORM
+  Improved proficiency with methods (`findOrFail`, `paginate`, `create`, `delete`)
+
+- ### ✅ Tailwind CSS
+  Grasped responsive design concepts and typography *(e.g., added Montserrat font on homepage)*
+
+- ### ✅ RESTful Routing
+  Efficiently utilized `Route::resource` for automatic RESTful routes generation
+
+---
