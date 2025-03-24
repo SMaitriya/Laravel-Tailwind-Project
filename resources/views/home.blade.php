@@ -17,8 +17,8 @@
 
     <div class="font-montserrat grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6">
         @foreach ($products as $product)
-            <div class="bg-white shadow-md flex flex-col justify-between">
-                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-70 sm:h-64 object-cover mb-4">
+            <div class="bg-white shadow-md flex flex-col justify-between hover:shadow-xl">
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-70 sm:h-50 object-cover mb-4">
 
                 <h2 class="text-xl text-gray-600 mb-2 text-center">{{ $product->name }}</h2>
                 <p class="text-sm text-gray-400 text-center p-3">{{ Str::limit($product->description, 150) }}</p>
